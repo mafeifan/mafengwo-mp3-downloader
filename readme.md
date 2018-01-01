@@ -9,7 +9,9 @@
 
 ## 安装
 
-chrome打开chrome://extensions，将release目录下的crx文件拖里面根据提示安装即可
+1. 下载本版本库
+2. chrome打开chrome://extensions，选中开发者模式，点击加载已解压的扩展程序
+3. 启用该扩展
 
 ## 感谢： 
 https://github.com/sxei/chrome-plugin-demo

@@ -12,7 +12,7 @@ function getDownLoadTitle(tags) {
   if (tags.artist) {
     return `${tags.artist}.mp3`
   }
-  return 'untitle.mp3'
+  return 'untitled.mp3'
 }
 
 function readMP3(url) {
@@ -20,7 +20,7 @@ function readMP3(url) {
     jsmediatags.read(url, {
       onSuccess: result => {
         if (result.tags) {
-          console.log(result.tags)
+          // console.log(result.tags)
           const song = {
             info: buildMP3String(result.tags),
             link: url,
@@ -71,10 +71,12 @@ function buildMP3String(tags) {
   return arr.join('\r\n')
 }
 
+// https://developer.chrome.com/extensions/contextMenus
 // 添加右键菜单
 chrome.contextMenus.create({
   id: '77',
-  title: '正在检测该页面的背景音乐'
+  title: '正在检测该页面的背景音乐',
+  documentUrlPatterns: ['*://www.mafengwo.cn/i/*'],
 });
 
 // https://developer.chrome.com/extensions/webRequest
