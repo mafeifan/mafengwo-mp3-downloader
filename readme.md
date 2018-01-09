@@ -9,9 +9,8 @@
 
 ## 安装
 
-1. 下载本版本库
-2. chrome打开chrome://extensions，选中开发者模式，点击加载已解压的扩展程序
-3. 启用该扩展
+[webstore下载](https://chrome.google.com/webstore/detail/mafengwo-mp3-downloader/olngcgpfadeplnlikpbklbgbkahhgccp?hl=en-US&gl=CA)
 
-## 感谢： 
-https://github.com/sxei/chrome-plugin-demo
+## 感谢：
+* https://github.com/aadsm/jsmediatags 
+* https://github.com/sxei/chrome-plugin-demo
