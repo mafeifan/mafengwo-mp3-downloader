@@ -1,17 +1,21 @@
 
-// 匹配歌曲地址
+// match mp3 URL
 const MATCH_URL = 'http://mp3file'
 
 function getDownLoadTitle(tags) {
+  let filename = '';	
   if (tags.title && tags.artist) {
-    return `${tags.title}-${tags.artist}.mp3`
+    filename = `${tags.title}-${tags.artist}`
+  } else {
+  	filename = tags.title || tags.artist
   }
-  if (tags.title) {
-    return `${tags.title}.mp3`
-  }
-  if (tags.artist) {
-    return `${tags.artist}.mp3`
-  }
+  // Replaces characters in strings that are illegal/unsafe for filenames.
+  if (filename) {
+  	// https://github.com/parshap/node-sanitize-filename/blob/master/index.js
+  	const illegalRe = /[\/\?<>\\:\*\|":]/g
+  	return filename.replace(illegalRe, '_') + '.mp3'
+  }  	
+
   return 'untitled.mp3'
 }
 
@@ -20,7 +24,7 @@ function readMP3(url) {
     jsmediatags.read(url, {
       onSuccess: result => {
         if (result.tags) {
-          // console.log(result.tags)
+          console.log(result.tags)
           const song = {
             info: buildMP3String(result.tags),
             link: url,
@@ -83,7 +87,7 @@ chrome.contextMenus.create({
 // 拦截请求，需要webRequest和webRequestBlocking权限
 chrome.webRequest.onBeforeSendHeaders.addListener(function(details){
   if (details.type === 'media' && details.url.startsWith(MATCH_URL)) {
-    console.log(details)
+    // console.log(details)
     readMP3(details.url)
       .then(res => {
         sendNotify(res)
@@ -99,12 +103,6 @@ chrome.webRequest.onBeforeSendHeaders.addListener(function(details){
               url: song.link,
               filename: song.downloadTitle
             })
-
-            // https://developer.chrome.com/extensions/tabs
-            // 在tab页面执行脚本
-            // chrome.tabs.executeScript(null, {
-            //   code: 'var e = document.createElement(\'a\');e.download="demo";e.href = "' + song.link + '";document.body.appendChild(e);e.click()'
-            // });
           }
         });
       })
