@@ -1,4 +1,3 @@
-
 // match mp3 URL
 const MATCH_URL = 'http://mp3file'
 
@@ -15,7 +14,6 @@ function getDownLoadTitle(tags) {
   	const illegalRe = /[\/\?<>\\:\*\|":]/g
   	return filename.replace(illegalRe, '_') + '.mp3'
   }  	
-
   return 'untitled.mp3'
 }
 
@@ -46,7 +44,7 @@ function readMP3(url) {
 function sendNotify(song) {
   chrome.notifications.create(null, {
     type: 'basic',
-    iconUrl: 'img/icon.png',
+    iconUrl: 'img/icon128.png',
     title: '检测到歌曲,请鼠标右键下载',
     message: song.info || 'Opps... 检测不到该歌曲的任何信息',
   });
@@ -93,8 +91,7 @@ chrome.webRequest.onBeforeSendHeaders.addListener(function(details){
         sendNotify(res)
         return res
       })
-      .then((song) => {
-
+      .then(song => {
         // 更新右键菜单,需要contextMenus权限
         chrome.contextMenus.update('77', {
           title: '下载该页面的背景音乐',
@@ -108,7 +105,7 @@ chrome.webRequest.onBeforeSendHeaders.addListener(function(details){
       })
       .catch(error => console.log(error))
   }
-},{urls: ['http://*.mafengwo.net/*']}, ['requestHeaders','blocking']
+},{urls: ['http://*.mafengwo.net/*', 'http://*.mafengwo.cn/*']}, ['requestHeaders', 'blocking']
 )
 
 
