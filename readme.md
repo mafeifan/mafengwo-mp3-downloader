@@ -12,9 +12,9 @@ A Chrome extension that recognizes and downloads the background MP3 music from t
 
 [演示](https://files.cnblogs.com/files/mafeifan/mafengwo_screenshot.gif?raw=true)
 
-## 安装 Install
+## 安装 How to use
 
-[webstore下载](https://chrome.google.com/webstore/detail/mafengwo-mp3-downloader/olngcgpfadeplnlikpbklbgbkahhgccp?hl=en-US&gl=CA)
+[Webstore](https://chrome.google.com/webstore/detail/mafengwo-mp3-downloader/olngcgpfadeplnlikpbklbgbkahhgccp?hl=en-US&gl=CA)
 
 ## 感谢 Thanks
 * https://github.com/aadsm/jsmediatags 
