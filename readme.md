@@ -1,7 +1,8 @@
 # mafengwo-mp3-downloader
 
 一款识别并下载马蜂窝游记页面背景mp3音乐的chrome扩展程序
-A Chrome extension that recognizes and downloads the background MP3 music from the Hornet's Nest Travel pages
+
+A Chrome extension that recognizes and downloads the background MP3 music from the http://www.mafengwo.cn/ pages
 
 
 ## 主要功能
