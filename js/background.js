@@ -105,7 +105,7 @@ chrome.webRequest.onBeforeSendHeaders.addListener(function(details){
       })
       .catch(error => console.log(error))
   }
-},{urls: ['http://*.mafengwo.net/*', 'http://*.mafengwo.cn/*']}, ['requestHeaders', 'blocking']
+},{urls: ['http://*.mafengwo.net/*','https://*.mafengwo.net/*', 'http://*.mafengwo.cn/*', 'https://*.mafengwo.cn/*']}, ['requestHeaders', 'blocking']
 )
 
 
